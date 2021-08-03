@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+
+        <a class="btn btn-success" routerLink="/add-employee/">Agregar Nuevo Empleado </a>
+    </div>
+    <div class="card-body">
+        <h1>Lista de Empleados</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of Employees; let i= index">
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.nombre}}</td>
+                    <td>{{employee.correo}}</td>
+                    <td>
+                        <a class="btn btn-info" routerLink="/edit-employee/{{employee.id}}">Editar </a>|
+                        <a class="btn btn-danger" (click)="borrarRegistro(employee.id, i)" role="button">
+                            Borrar
+                        </a>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
